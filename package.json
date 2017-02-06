@@ -1,0 +1,50 @@
+{
+  "name": "purejs-minesweeper",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "webpack-dev-server",
+    "clean": "rm -rf client-dist",
+    "prebuild": "npm run clean",
+    "build": "NODE_ENV=production webpack",
+    "predeploy": "npm run build",
+    "deploy": "surge -p ./client-dist -d purejs-minesweeper.surge.sh",
+    "lint": "eslint client --ignore-path .gitignore",
+    "lint:fix": "npm run lint -- --fix",
+    "lintstyle": "stylelint 'client/**/*.css'",
+    "lintstyle:fix": "stylefmt -r client/**/*.css"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.8.0",
+    "babel-core": "^6.13.2",
+    "babel-eslint": "7.1.1",
+    "babel-loader": "^6.2.4",
+    "babel-plugin-transform-runtime": "^6.9.0",
+    "babel-polyfill": "^6.16.0",
+    "babel-preset-latest": "^6.16.0",
+    "babel-runtime": "^6.20.0",
+    "css-loader": "^0.26.1",
+    "eslint": "^3.12.2",
+    "eslint-config-standard": "^6.2.1",
+    "eslint-plugin-promise": "^3.4.0",
+    "eslint-plugin-standard": "^2.0.1",
+    "file-loader": "^0.10.0",
+    "git-scripts": "^0.2.1",
+    "html-webpack-plugin": "^2.25.0",
+    "style-loader": "^0.13.1",
+    "stylefmt": "^5.0.3",
+    "stylelint": "^7.8.0",
+    "stylelint-config-standard": "^16.0.0",
+    "stylelint-order": "^0.2.2",
+    "surge": "^0.18.0",
+    "url-loader": "^0.5.7",
+    "webpack": "^2.2.0",
+    "webpack-dev-server": "^2.1.0-beta.0",
+    "webpack-error-notification": "^0.1.6"
+  },
+  "git": {
+    "scripts": {
+      "pre-commit": "npm run lint && npm run lintstyle"
+    }
+  }
+}

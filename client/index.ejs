@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mine Sweeper</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.0/gh-fork-ribbon.min.css' />
+</head>
+<body>
+  <a class='github-fork-ribbon' href='http://github.com/goldylucks/purejs-minesweeper' title='Fork me on GitHub'>Fork me on GitHub</a>
+  <h1 class='title'>Pure JS Minesweeper</h1>
+  <form class='js-form controls'>
+    <label for='rows-input'>Rows</label>
+    <input id='rows-input' class='js-rows-input' type='number' max=20 min=1 placeholder='Rows' value=10>
+
+    <label for='columns-input'>Columns</label>
+    <input id='columns-input' class='js-columns-input' type='number' max=20 min=1 placeholder='Columns' value=10>
+
+    <label for='mines-input'>Mines</label>
+    <input id='controls-input' class='js-mines-input' type='number' min=1 placeholder='Mines' value=10>
+
+    <button class='js-restart'>Restart</button>
+  </form>
+  <div class='js-board board' />
+</body>
+</html>
