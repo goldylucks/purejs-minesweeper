@@ -118,6 +118,11 @@ function onTileLeftClick (id) {
     return
   }
   revealTilesFrom(id)
+  if (!allRevealed()) {
+    return
+  }
+  // setTimeout to let dom render updates
+  setTimeout(onWinGame, 0)
 }
 
 function onLoseGame (tileId) {
@@ -167,6 +172,21 @@ function getTileEdgesIds (rowIdx, columnIdx) {
   if (rowIdx < rows() - 1 && columnIdx < columns() - 1) edgesIds.push(`tile${rowIdx + 1}${columnIdx + 1}`)
   if (rowIdx < rows() - 1 && columnIdx > 0) edgesIds.push(`tile${rowIdx + 1}${columnIdx - 1}`)
   return edgesIds
+}
+
+function onWinGame () {
+  isGameOver = true
+  if (!global.confirm('you win!\nOne more round for goold o\'l times sake?')) {
+    return
+  }
+  restart()
+}
+
+function allRevealed () {
+  return [].filter.call(
+    document.querySelector('.js-tile:not([data-revealed])'),
+    tile => !tile.getAttribute('data-mine')
+  ).length === 0
 }
 
 function el (id) {
