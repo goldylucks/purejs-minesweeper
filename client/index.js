@@ -184,7 +184,7 @@ function onWinGame () {
 
 function allRevealed () {
   return [].filter.call(
-    document.querySelector('.js-tile:not([data-revealed])'),
+    document.querySelectorAll('.js-tile:not([data-revealed])'),
     tile => !tile.getAttribute('data-mine')
   ).length === 0
 }
